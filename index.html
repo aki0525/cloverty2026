@@ -160,7 +160,7 @@ body{background:var(--black);color:var(--white);font-family:'Noto Sans JP',sans-
 
 /* ── QUICK INFO ── */
 #quickinfo{background:var(--section-light);padding:0}
-.qi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(0,0,0,0.07);max-width:1200px;margin:0 auto}
+.qi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(0,0,0,0.07);max-width:1200px;margin:0 auto}
 .qi-item{background:var(--section-light);padding:32px 20px;text-align:center;transition:background 0.2s}
 .qi-item:hover{background:rgba(232,112,154,0.06)}
 .qi-label{font-size:12px;letter-spacing:1.5px;color:#555;text-transform:uppercase;margin-bottom:8px}
@@ -732,7 +732,7 @@ footer { background: #080808; padding: 56px 48px 36px; border-top: 1px solid rgb
 
 /* ── Quick Info Bar ── */
 #quickinfo { background: var(--section-light); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 40px 48px; }
-.qi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: rgba(255,255,255,0.06); max-width: 1200px; margin: 0 auto; }
+.qi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(255,255,255,0.06); max-width: 1200px; margin: 0 auto; }
 .qi-item { background: var(--section-light); padding: 24px 20px; text-align: center; transition: background 0.2s; }
 .qi-item:hover { background: rgba(232,112,154,0.05); }
 .qi-label { font-size: 12px; letter-spacing: 1.5px; color: #555; text-transform: uppercase; margin-bottom: 8px; }
@@ -1623,10 +1623,6 @@ body { line-height: 1.8; }
       <div class="qi-value">当番・役員<br><span>なし</span></div>
     </div>
     <div class="qi-item">
-      <div class="qi-label">送迎</div>
-      <div class="qi-value"><span>送迎相談可</span><br>¥1,000〜/月</div>
-    </div>
-    <div class="qi-item">
       <div class="qi-label">月謝</div>
       <div class="qi-value">スクール <span>¥5,200</span>〜<br>クラブ <span>¥11,000</span>〜</div>
     </div>
@@ -1744,18 +1740,24 @@ body { line-height: 1.8; }
     <div class="pillars-3 reveal">
       <div class="p3-item">
         <div class="p3-icon">⚽</div>
-        <div class="p3-title">個の育成</div>
-        <div class="p3-body">未経験からでも安心して始められる指導。技術だけでなく、判断力・チャレンジする姿勢も育てます。「指示待ち」ではなく「自分で決める」選手へ。</div>
+        <div class="p3-content">
+          <div class="p3-title">個の育成</div>
+          <div class="p3-body">未経験からでも安心して始められる指導。技術だけでなく、判断力・チャレンジする姿勢も育てます。「指示待ち」ではなく「自分で決める」選手へ。</div>
+        </div>
       </div>
       <div class="p3-item">
         <div class="p3-icon">🗓️</div>
-        <div class="p3-title">通いやすさ</div>
-        <div class="p3-body">所沢エリアで送迎相談可能。共働き家庭でも通いやすい曜日設計で、塾や他の習い事との両立もサポートします。</div>
+        <div class="p3-content">
+          <div class="p3-title">通いやすさ</div>
+          <div class="p3-body">所沢エリアで送迎相談可能。共働き家庭でも通いやすい曜日設計で、塾や他の習い事との両立もサポートします。</div>
+        </div>
       </div>
       <div class="p3-item">
         <div class="p3-icon">🤝</div>
-        <div class="p3-title">人としての成長</div>
-        <div class="p3-body">挨拶、仲間との関わり、失敗しても諦めない力。サッカーの先にも残る土台をつくります。ピッチの外でも育つクラブです。</div>
+        <div class="p3-content">
+          <div class="p3-title">人としての成長</div>
+          <div class="p3-body">挨拶、仲間との関わり、失敗しても諦めない力。サッカーの先にも残る土台をつくります。ピッチの外でも育つクラブです。</div>
+        </div>
       </div>
     </div>
     <p style="margin-top:20px;font-size:12px;color:#b0b0b0;text-align:center">母体：<a href="https://www.daigofootballschool.com/" target="_blank" rel="noopener noreferrer" style="color:#b0b0b0;text-decoration:underline">DAIGO FOOTBALL SCHOOL</a> — 元日本代表・小林大悟氏のメソッドを継承</p>
@@ -1852,46 +1854,6 @@ body { line-height: 1.8; }
 </section>
 
 <!-- ⑤ 参加パターン -->
-<section id="courses" class="sec" style="border-top:3px solid var(--pink);background:var(--black)">
-  <div class="sec-inner">
-    <span class="label reveal">Course / <span class="label-jp">クラブチーム 参加パターン</span></span>
-    <h2 class="h2 reveal">ご家庭に合わせて<br><em>選べる参加パターン。</em></h2>
-    <p class="lead reveal" style="font-size:13px;margin-bottom:0">※ 以下はCLOVERTY FC U-10（クラブチーム）の料金です。スクール料金は<a href="school.html" style="color:var(--pink)">こちら</a>をご覧ください。</p>
-    <p class="lead reveal">曜日・頻度・送迎の有無など、ライフスタイルに合わせて選択できます。</p>
-    <div class="pattern-grid reveal">
-      <div class="pt-card pt-main">
-        <div class="pt-days">水・土・日</div>
-        <div class="pt-badge">基本パターン</div>
-        <div class="pt-price">¥11,000<span>/月</span></div>
-        <div class="pt-for">週3回で着実に伸ばしたい方</div>
-        <div class="pt-note">チーム活動の基本スケジュール</div>
-      </div>
-      <div class="pt-card">
-        <div class="pt-days">火・土・日</div>
-        <div class="pt-badge">水曜が難しい方向け</div>
-        <div class="pt-price">¥11,000<span>/月</span></div>
-        <div class="pt-for">平日は火曜に振替参加</div>
-        <div class="pt-note">火曜はスクール参加の代替日</div>
-      </div>
-      <div class="pt-card">
-        <div class="pt-days">土・日のみ</div>
-        <div class="pt-badge">平日が難しい方向け</div>
-        <div class="pt-price">¥11,000<span>/月</span></div>
-        <div class="pt-for">土日だけの参加でも同月謝</div>
-        <div class="pt-note">他の習い事・塾との両立に最適</div>
-      </div>
-      <div class="pt-card pt-full">
-        <div class="pt-days">火・水・土・日</div>
-        <div class="pt-badge">本気でやりたい方</div>
-        <div class="pt-price">¥14,500<span>/月</span></div>
-        <div class="pt-for">チーム活動＋スクール併用</div>
-        <div class="pt-note">週4回で集中して伸ばしたい子向け</div>
-      </div>
-    </div>
-    <p style="margin-top:16px;font-size:12px;color:#b0b0b0">※ 火曜以外のスクール参加希望の方は会員向けチケット購入で参加可能（1回¥1,600〜）。</p>
-    <div style="margin-top:24px;text-align:center"><a href="fees.html" class="btn-outline">全コース・料金を詳しく見る</a></div>
-  </div>
-</section>
 
 <!-- ⑥ 料金・送迎 -->
 <section id="fee-overview" class="sec sec-light">

@@ -317,7 +317,7 @@ footer {
   .qi-value { font-size: 12px !important; line-height: 1.4 !important; }
 }
 @media (max-width: 380px) {
-  .qi-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .qi-grid { grid-template-columns: repeat(1, 1fr) !important; }
 }
 
 /* ── Two-choice section ── */
@@ -974,121 +974,354 @@ footer {
 .fc-links a:hover             { color: #ffffff !important; }
 
 
+
 /* ════════════════════════════════════════════════════════════════
-   ⑦ ODD-COUNT GRID FIX — mobile 2col → 1col for odd item counts
+   ⑦ ODD-COUNT GRID & MOBILE LAYOUT OVERHAUL
    ════════════════════════════════════════════════════════════════ */
 
-/*
- * coaches-grid: 3 items (3 = odd → 2x2 shows empty cell)
- * flow-timeline: 5 items (5 = odd → 3x2 shows empty cell)
- * Fix: force single column on mobile for these specific grids
- */
+/* ── 奇数グリッドの基本方針:
+     3アイテム → 1列縦積み
+     5アイテム → 1列縦積み (横並びベース)
+     4/6アイテム → 2列OK
+   ── */
 
 @media (max-width: 768px) {
-  /* coaches: 3 items → 1col vertical stack */
+
+  /* ━━ pillars-3: 3アイテム → 1列縦積み ━━ */
+  .pillars-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: 28px !important;
+    background: transparent !important;
+  }
+  .p3-item {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 14px !important;
+    align-items: flex-start !important;
+    padding: 20px 16px !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+  }
+  .p3-icon {
+    font-size: 24px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 2px !important;
+    width: 32px !important;
+    text-align: center !important;
+  }
+  .p3-content {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  .p3-title {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    margin-bottom: 6px !important;
+    color: var(--white) !important;
+  }
+  .p3-body {
+    font-size: 13px !important;
+    line-height: 1.75 !important;
+    color: var(--gray-light) !important;
+  }
+
+  /* ━━ coaches-grid: 3アイテム → 1列縦積み (flexなし、gridのまま) ━━ */
   .coaches-grid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 8px !important;
+    background: transparent !important;
   }
+  /* coachカード: flexを使わずblockのまま */
   .coach {
-    display: flex !important;
-    gap: 16px !important;
-    align-items: flex-start !important;
-    padding: 18px 16px !important;
+    display: block !important;
+    padding: 20px 16px !important;
+    border-radius: 8px !important;
   }
   .coach-role {
-    font-size: 9px !important;
-    letter-spacing: 1px !important;
+    font-size: 10px !important;
+    letter-spacing: 1.5px !important;
     margin-bottom: 4px !important;
   }
   .coach-name {
-    font-size: 15px !important;
-    margin-bottom: 6px !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    margin-bottom: 8px !important;
+    color: var(--white) !important;
   }
-  .coach-bio { font-size: 12px !important; }
-  .coach-left {
-    flex-shrink: 0 !important;
-    width: 40px !important;
-    padding-top: 2px !important;
+  .coach-bio {
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+    color: #c8c8c8 !important;
+  }
+  .dfs-tag {
+    margin-top: 10px !important;
+    font-size: 11px !important;
+    display: inline-flex !important;
+    color: #c0c0c0 !important;
   }
 
-  /* flow-timeline: 5 items → 1col vertical stack */
+  /* ━━ flow-timeline: 5アイテム → 1列縦積み (コンパクト横並び) ━━ */
   .flow-timeline {
     display: flex !important;
     flex-direction: column !important;
     gap: 6px !important;
-    grid-template-columns: unset !important;
   }
   .ft-step {
-    display: flex !important;
-    gap: 14px !important;
-    align-items: flex-start !important;
-    padding: 16px !important;
-    border-left: 3px solid var(--pink) !important;
+    display: grid !important;
+    grid-template-columns: 36px 1fr !important;
+    gap: 12px !important;
+    align-items: start !important;
+    padding: 14px 14px 14px 0 !important;
+    border-left: 3px solid rgba(232,112,154,0.4) !important;
     border-radius: 0 6px 6px 0 !important;
+    padding-left: 14px !important;
   }
   .ft-step:first-child {
-    border-left: 3px solid var(--pink) !important;
+    border-left-color: var(--pink) !important;
   }
   .ft-num {
-    font-size: 18px !important;
+    font-size: 20px !important;
     font-weight: 900 !important;
     color: var(--pink) !important;
-    flex-shrink: 0 !important;
-    width: 28px !important;
-    text-align: center !important;
-    padding-top: 2px !important;
+    line-height: 1 !important;
+    padding-top: 4px !important;
+    text-align: right !important;
+    width: 36px !important;
   }
-  .ft-step-body { flex: 1 !important; }
-  .ft-time { font-size: 10px !important; margin-bottom: 3px !important; }
-  .ft-title { font-size: 13px !important; margin-bottom: 4px !important; }
-  .ft-body { font-size: 12px !important; line-height: 1.7 !important; }
+  .ft-step-body {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  .ft-time {
+    font-size: 10px !important;
+    letter-spacing: 1.5px !important;
+    color: var(--pink) !important;
+    font-weight: 700 !important;
+    margin-bottom: 3px !important;
+  }
+  .ft-title {
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+    margin-bottom: 4px !important;
+  }
+  .ft-body {
+    font-size: 12px !important;
+    line-height: 1.7 !important;
+    color: rgba(255,255,255,0.8) !important;
+  }
+
+  /* ━━ dayflow heading の <br> を削除して見切れを防止 ━━ */
+  #dayflow .h2 {
+    font-size: clamp(18px, 5vw, 24px) !important;
+    line-height: 1.45 !important;
+  }
+
+  /* ━━ CTA section テキスト視認性 ━━ */
+  .cta-pre-text {
+    font-size: 14px !important;
+    line-height: 1.85 !important;
+    color: rgba(255,255,255,0.9) !important;
+  }
+  .cta-title {
+    font-size: clamp(22px, 5.5vw, 30px) !important;
+    line-height: 1.35 !important;
+  }
+  .cta-desc {
+    font-size: 13px !important;
+    color: #d0d0d0 !important;
+  }
+  .cub-title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+  }
+  .cub-sub {
+    font-size: 12px !important;
+    color: #d0d0d0 !important;
+    line-height: 1.7 !important;
+  }
+
+  /* ━━ Parent message heading ━━ */
+  #parentmsg .h2 {
+    font-size: clamp(18px, 5vw, 24px) !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ━━ schedule-cards: 4アイテム → 2x2 OK ━━ */
+  .schedule-cards {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
+  }
+  .sc-card {
+    flex: unset !important;
+    min-width: unset !important;
+  }
 }
 
-@media (max-width: 768px) {
-  /* qi-grid: 6 items → 3x2 = OK, but consider 2x3 on very small */
-  /* 6 is even so no orphan — keep 3col */
-
-  /* two-choice: already 1col on mobile < 640px */
-
-  /* pmsg-items: 4 items → 2x2 = OK (even) */
-
-  /* reassurance: 6 items → 3col OK */
+/* ── 超小画面 (≤420px) ── */
+@media (max-width: 420px) {
+  .schedule-cards {
+    grid-template-columns: 1fr !important;
+  }
 }
 
-/* schedule-cards: 4 items → 2x2 = OK */
-/* pattern-grid: 4 items → 2x2 = OK */
+/* ════════════════════════════════════════════════════════════════
+   ⑧ GLOBAL DARK-SECTION TEXT — catch-all CSS selectors
+   ════════════════════════════════════════════════════════════════ */
+
+/* Dark sections: force any inline #666/#777 text to readable level */
+#philosophy [style*="color:#6"],
+#philosophy [style*="color:#7"],
+#courses [style*="color:#6"],
+#courses [style*="color:#7"],
+#dayflow [style*="color:#6"],
+#dayflow [style*="color:#7"],
+#gallery [style*="color:#6"],
+#growth [style*="color:#6"],
+#coaches [style*="color:#6"],
+#about-cloverty [style*="color:#6"],
+#cta [style*="color:#6"],
+.sec-target-age [style*="color:#6"],
+.sec-target-age [style*="color:#8"] {
+  color: #b0b0b0 !important;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ⑨ DARK-BG BLACK TEXT — 根本修正
+   ダーク背景上に黒系テキストが残っていた箇所を全修正
+   ════════════════════════════════════════════════════════════════ */
+
+/*
+ * 問題の構造:
+ *   #parentmsg   bg: rgba(232,112,154,0.05) on charcoal → 実効 #241e20
+ *   #reassurance bg: rgba(209,79,134,0.08) on charcoal  → 実効 #281e22
+ *   どちらも極めて暗い背景 → 黒系テキストは不可視
+ *
+ * 修正方針: 両セクションをライトテーマに変更するか、テキストを白系に統一
+ * → テキストを白/明色に変更（デザインを維持しつつ）
+ */
+
+/* ── #parentmsg: ダーク背景上の黒文字 → 白/明色に ── */
+#parentmsg,
+#parentmsg .sec-inner,
+#parentmsg .pmsg-inner {
+  color: var(--white) !important;
+}
+#parentmsg .label,
+#parentmsg .label-jp {
+  color: var(--pink) !important;
+}
+#parentmsg .h2,
+#parentmsg h2 {
+  color: #ffffff !important;
+}
+#parentmsg .h2 em,
+#parentmsg h2 em {
+  color: var(--pink) !important;
+}
+#parentmsg .pmsg-body {
+  color: rgba(255,255,255,0.85) !important;
+}
+#parentmsg .pmsg-body strong {
+  color: #ffffff !important;
+}
+#parentmsg .pmsg-item {
+  background: rgba(255,255,255,0.06) !important;
+  border-left-color: var(--pink) !important;
+  color: var(--white) !important;
+}
+#parentmsg .pmsg-item-title {
+  color: #ffffff !important;
+}
+#parentmsg .pmsg-item-body {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+/* ── #reassurance (ピンク薄掛かったダーク帯): 黒文字 → 白に ── */
+#reassurance .rs-item {
+  color: #ffffff !important;
+}
+#reassurance .rs-icon {
+  color: var(--pink) !important;
+}
+#reassurance .rs-item strong {
+  color: var(--pink) !important;
+}
+
+/* ── #reassurance-light (別バリアント): 元々ライトなら維持 ── */
+/* これはlight bg想定なので変更不要 */
+
+/* ── .sc-venue on dark schedule-overview ── */
+#schedule-overview .sc-venue {
+  color: rgba(255,255,255,0.75) !important;
+}
+
+/* ── #dayflow: ft-title #111 の確実な上書き ── */
+#dayflow .ft-title,
+.sec:not(.sec-light) .ft-title {
+  color: #ffffff !important;
+}
+#dayflow .ft-body,
+.sec:not(.sec-light) .ft-body {
+  color: rgba(255,255,255,0.82) !important;
+}
+
+/* ── .fb-val / .fb-label / .fb-note on dark fee sections ── */
+/* fee-blocks appear on LIGHT sec-light → these are OK, keep dark */
+/* But if they appear in dark context, override */
+#fee-overview .fb-val   { color: #111111 !important; }  /* on white card */
+#fee-overview .fb-label { color: #555555 !important; }
+#fee-overview .fb-note  { color: #555555 !important; }
+
+/* ── Catch-all: any class with dark text in dark sections ── */
+/* This handles cases not individually addressed above */
+#coaches   > * > .coach-role          { color: var(--pink) !important; }
+#coaches   > * > .coach-name          { color: #ffffff !important; }
+#coaches   > * > .coach-bio           { color: #c8c8c8 !important; }
+
+/* ── Schedule cards in dark overview section ── */
+#schedule-overview .sc-card           { background: rgba(255,255,255,0.06) !important; }
+#schedule-overview .sc-day            { color: #ffffff !important; font-weight: 800; }
+#schedule-overview .sc-time           { color: var(--pink) !important; font-weight: 700; }
+#schedule-overview .sc-venue          { color: rgba(255,255,255,0.75) !important; }
+#schedule-overview .sc-note           { color: rgba(255,255,255,0.6) !important; }
+#schedule-overview .sc-type           {
+  background: rgba(232,112,154,0.18) !important;
+  color: var(--pink) !important;
+}
 
 
 /* ════════════════════════════════════════════════════════════════
-   ⑧ GLOBAL DARK-SECTION GRAY TEXT OVERRIDE
+   ⑩ QI-GRID: 6col → 5col 対応
    ════════════════════════════════════════════════════════════════ */
-
-/* Catch-all: any inline #666 left on dark sections */
-#philosophy [style*="color:#666"],
-#courses [style*="color:#666"],
-#dayflow [style*="color:#666"],
-#gallery [style*="color:#666"],
-#growth [style*="color:#666"],
-#coaches [style*="color:#666"],
-#about-cloverty [style*="color:#666"],
-#cta [style*="color:#666"],
-.sec-target-age [style*="color:#666"] {
-  color: #b0b0b0 !important;
+/* qi-grid が5アイテムになったため列数調整 */
+.qi-grid {
+  grid-template-columns: repeat(5, 1fr) !important;
 }
-
-/* Any #888 on dark */
-#philosophy [style*="color:#888"],
-#courses [style*="color:#888"],
-#about-cloverty [style*="color:#888"],
-.sec-target-age [style*="color:#888"],
-#coaches [style*="color:#888"] {
-  color: #b0b0b0 !important;
+@media (max-width: 1024px) {
+  .qi-grid { grid-template-columns: repeat(5, 1fr) !important; }
 }
-
-/* Ensure ALL text in dark sections is at least barely visible */
-/* This targets any inline color lower than #999 on dark bg */
-.sec:not(.sec-light) [style*="color:#6"],
-.sec:not(.sec-light) [style*="color:#7"] {
-  color: #b0b0b0 !important;
+@media (max-width: 768px) {
+  /* 5アイテム: 3+2 → 最終行の2個は中央寄せ */
+  .qi-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 480px) {
+  /* 5アイテム: 2+2+1 → 最終行1個は全幅 */
+  .qi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* 最後のアイテムを全幅に */
+  .qi-item:last-child {
+    grid-column: 1 / -1 !important;
+  }
 }
