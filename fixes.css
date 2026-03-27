@@ -1192,3 +1192,10 @@ footer .footer-nav a:hover { color: #ffffff !important; }
   .h2, h2     { font-size: 20px !important; }
   .rs-inner   { grid-template-columns: 1fr 1fr !important; }
 }
+
+/* ── contact.html Instagram grid: SP 1列 ── */
+@media (max-width: 600px) {
+  .contact-ig-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
