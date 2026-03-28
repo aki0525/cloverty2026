@@ -43,7 +43,7 @@ tailwind.config = {
   --section-light: #f7f5f2;
 }
 body{background:var(--black);color:var(--white);font-family:'Noto Sans JP',sans-serif;font-weight:400;font-size:16px;letter-spacing:0.03em;overflow-x:hidden;line-height:1.8}
- HEADER ══════════════════════════════════════════════════════ */
+/* HEADER ══════════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 
@@ -946,7 +946,7 @@ footer{background:#080808;padding:40px 48px;border-top:1px solid rgba(255,255,25
 .school-page .faq-a{color:#333!important}
 .school-page .faq-item{border-color:rgba(0,0,0,0.1)!important}
 .school-page .faq-icon{color:#555!important}
-.school-page .school-page .sp-menu{background:rgba(6,6,6,0.98)!important}
+.school-page .sp-menu{background:rgba(6,6,6,0.98)!important}
 .school-page .sp-menu a{color:#f5f3ef!important;border-bottom-color:rgba(255,255,255,0.07)!important}
 .school-page .sp-close{color:rgba(255,255,255,0.8)!important}
 .school-page #cta{background:#111!important}
@@ -1124,11 +1124,11 @@ body { line-height: 1.8; }
       <a href="access.html">アクセス</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJHpzlTP6c1pJ7NLiPIqJlxKilnSx1-9g1FEI47SU6LpMIeA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">無料体験を申し込む</a>
     </nav>
-    <button class="hb-btn" id="hbBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    <button class="hb-btn" id="hbBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="spMenu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<div class="sp-menu" id="spMenu" style="display:none">
+<div class="sp-menu" id="spMenu" style="display:none" aria-hidden="true">
   <button class="sp-close" id="spClose">✕</button>
   <a href="index.html">ホーム</a>
   <a href="school.html" class="active">スクール</a>
@@ -1454,7 +1454,9 @@ body { line-height: 1.8; }
       requestAnimationFrame(function(){
         requestAnimationFrame(function(){
           menu.classList.add('is-open');
+          menu.setAttribute('aria-hidden', 'false');
           btn.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
         });
       });
@@ -1462,7 +1464,9 @@ body { line-height: 1.8; }
 
     function closeMenu(){
       menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
       btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
       /* opacity のトランジション（0.25s）後に display:none */
       setTimeout(function(){

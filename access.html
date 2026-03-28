@@ -39,7 +39,7 @@ tailwind.config = {
   --section-light: #f7f5f2;
 }
 body{background:var(--black);color:var(--white);font-family:'Noto Sans JP',sans-serif;font-weight:400;font-size:16px;letter-spacing:0.03em;overflow-x:hidden;line-height:1.8}
- HEADER ══════════════════════════════════════════════════════ */
+/* HEADER ══════════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 
@@ -691,11 +691,11 @@ body { line-height: 1.8; }
       <a href="access.html" class="active">アクセス</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJHpzlTP6c1pJ7NLiPIqJlxKilnSx1-9g1FEI47SU6LpMIeA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">無料体験を申し込む</a>
     </nav>
-    <button class="hb-btn" id="hbBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    <button class="hb-btn" id="hbBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="spMenu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<div class="sp-menu" id="spMenu" style="display:none">
+<div class="sp-menu" id="spMenu" style="display:none" aria-hidden="true">
   <button class="sp-close" id="spClose">✕</button>
   <a href="index.html">ホーム</a>
   <a href="school.html">スクール</a>
@@ -872,7 +872,9 @@ body { line-height: 1.8; }
       requestAnimationFrame(function(){
         requestAnimationFrame(function(){
           menu.classList.add('is-open');
+          menu.setAttribute('aria-hidden', 'false');
           btn.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
         });
       });
@@ -880,7 +882,9 @@ body { line-height: 1.8; }
 
     function closeMenu(){
       menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
       btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
       /* opacity のトランジション（0.25s）後に display:none */
       setTimeout(function(){
