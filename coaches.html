@@ -43,7 +43,7 @@ tailwind.config = {
   --section-light: #f7f5f2;
 }
 body{background:var(--black);color:var(--white);font-family:'Noto Sans JP',sans-serif;font-weight:400;font-size:16px;letter-spacing:0.03em;overflow-x:hidden;line-height:1.8}
-/* HEADER ══════════════════════════════════════════════════════ */
+ HEADER ══════════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 
@@ -779,11 +779,11 @@ body { line-height: 1.8; }
       <a href="access.html">アクセス</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJHpzlTP6c1pJ7NLiPIqJlxKilnSx1-9g1FEI47SU6LpMIeA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">無料体験を申し込む</a>
     </nav>
-    <button class="hb-btn" id="hbBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="spMenu"><span></span><span></span><span></span></button>
+    <button class="hb-btn" id="hbBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<div class="sp-menu" id="spMenu" style="display:none" aria-hidden="true">
+<div class="sp-menu" id="spMenu" style="display:none">
   <button class="sp-close" id="spClose">✕</button>
   <a href="index.html">ホーム</a>
   <a href="school.html">スクール</a>
@@ -812,6 +812,61 @@ body { line-height: 1.8; }
     <p style="font-size:12px;color:#888;margin-bottom:8px">指導体制や担当コーチの詳細は、体験時にもご案内しています。</p>
     <h2 class="sec-title reveal">CLOVERTY FCを<em>支える</em><br>チーム。</h2>
     <div class="coaches-grid">
+      <div class="coach-card reveal">
+        <div class="coach-photo"><div class="coach-placeholder">HEAD</div></div>
+        <div class="coach-info">
+          <div class="coach-role">Head Coach / 代表・運営責任者</div>
+          <div class="coach-name">代表コーチ</div>
+          <div class="coach-career">
+            <div class="cc-section-title">経歴</div>
+            <ul class="cc-list"><li>指導歴・資格の詳細は順次掲載予定です</li></ul>
+          </div>
+          <div class="coach-philosophy">
+            <div class="cc-section-title">指導方針</div>
+            <div class="coach-bio">「指示待ちではなく、自分で考えてプレーできる選手を育てること」を信念にしています。失敗を恐れずチャレンジできる環境を大切にしています。</div>
+          </div>
+          <div class="coach-for-kids">
+            <div class="cc-section-title">こんな子に来てほしい</div>
+            <ul class="cc-list">
+              <li>サッカーを始めてみたい子</li>
+              <li>もっと上手くなりたい子</li>
+              <li>試合でプレーしたい子</li>
+              <li>失敗しても諦めずに挑戦できる子</li>
+            </ul>
+          </div>
+          <div class="coach-to-parents surface-tint" style="padding:12px 16px;margin-top:12px">
+            <div class="cc-section-title">保護者の方へ</div>
+            <div class="coach-bio" style="color:#c0c0c0">初心者の子にも安心して参加してもらえるよう、できたことを積み重ねる指導を大切にしています。上手い・下手で判断せず、一人ひとりの成長を見ていきます。何でもお気軽にご相談ください。</div>
+          </div>
+        </div>
+      </div>
+      <div class="coach-card reveal d1">
+        <div class="coach-photo"><div class="coach-placeholder">COACH</div></div>
+        <div class="coach-info">
+          <div class="coach-role">Coach / コーチ</div>
+          <div class="coach-name">コーチ</div>
+          <div class="coach-career">
+            <div class="cc-section-title">経歴</div>
+            <ul class="cc-list"><li>指導歴・資格の詳細は順次掲載予定です</li></ul>
+          </div>
+          <div class="coach-philosophy">
+            <div class="cc-section-title">指導方針</div>
+            <div class="coach-bio">選手の個性を尊重し、一人ひとりの「できた」を積み重ねることを大切にしています。</div>
+          </div>
+          <div class="coach-for-kids">
+            <div class="cc-section-title">こんな子に来てほしい</div>
+            <ul class="cc-list">
+              <li>サッカーが好きな子・好きになりたい子</li>
+              <li>仲間と一緒に成長したい子</li>
+              <li>自分のペースで上手くなりたい子</li>
+            </ul>
+          </div>
+          <div class="coach-to-parents surface-tint" style="padding:12px 16px;margin-top:12px">
+            <div class="cc-section-title">保護者の方へ</div>
+            <div class="coach-bio" style="color:#c0c0c0">お子さんの成長を一緒に見守っていきましょう。気になることはいつでもお声がけください。遠慮なくご相談いただけます。</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -935,9 +990,7 @@ body { line-height: 1.8; }
       requestAnimationFrame(function(){
         requestAnimationFrame(function(){
           menu.classList.add('is-open');
-          menu.setAttribute('aria-hidden', 'false');
           btn.classList.add('is-open');
-          btn.setAttribute('aria-expanded', 'true');
           document.body.style.overflow = 'hidden';
         });
       });
@@ -945,9 +998,7 @@ body { line-height: 1.8; }
 
     function closeMenu(){
       menu.classList.remove('is-open');
-      menu.setAttribute('aria-hidden', 'true');
       btn.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
       /* opacity のトランジション（0.25s）後に display:none */
       setTimeout(function(){
