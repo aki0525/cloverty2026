@@ -837,7 +837,7 @@ footer { background: #080808; padding: 56px 48px 36px; border-top: 1px solid rgb
   display: inline-flex; align-items: center; gap: 8px;
   background: rgba(209,79,134,0.18); border: 1px solid rgba(209,79,134,0.55);
   padding: 9px 16px; border-radius: 2px;
-  font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 16px;
+  font-size: 12px; font-weight: 600; color: #ffffff; margin-top: 18px; margin-bottom: 16px;
   animation: fadeUp 0.7s ease 0.25s both;
 }
 .hu-dot {
@@ -1041,17 +1041,26 @@ section + .sec-light {
 .hero-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px}
 .hero-choice-card{display:flex;flex-direction:column;justify-content:space-between;gap:12px;padding:16px 16px 14px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);text-decoration:none;color:var(--white);border-radius:4px;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;min-height:168px}
 .hero-choice-card:hover{transform:translateY(-2px);border-color:rgba(232,112,154,0.5);background:rgba(232,112,154,0.08);box-shadow:0 10px 28px rgba(0,0,0,0.22)}
-.hero-choice-top{display:flex;align-items:flex-start;gap:12px}
-.hero-choice-mark{width:48px;height:48px;border:1px solid rgba(255,255,255,0.16);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:1px;flex-shrink:0;background:rgba(255,255,255,0.05)}
-.hero-choice-card.school .hero-choice-mark{color:var(--white)}
-.hero-choice-card.club .hero-choice-mark{color:var(--pink);border-color:rgba(232,112,154,0.45);background:rgba(232,112,154,0.08)}
+.hero-choice-card.school{background:#ffffff;border-color:rgba(0,0,0,0.08);color:#111}
+.hero-choice-card.school:hover{background:#fff;border-color:rgba(232,112,154,0.55);box-shadow:0 10px 28px rgba(0,0,0,0.18)}
+.hero-choice-top{display:flex;align-items:center;gap:14px}
+.hero-choice-mark{width:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;flex-shrink:0}
+.hero-choice-logo{height:34px;width:auto;display:block;object-fit:contain;opacity:.98}
+.hero-choice-card.club .hero-choice-logo{filter:invert(1)}
+.hero-choice-badge{display:inline-flex;align-items:center;justify-content:center;min-width:62px;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:1px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.86);line-height:1}
+.hero-choice-card.school .hero-choice-badge{color:var(--pink-dark);border-color:rgba(200,84,126,0.24);background:rgba(232,112,154,0.08)}
+.hero-choice-card.club .hero-choice-badge{color:var(--pink);border-color:rgba(232,112,154,0.45);background:rgba(232,112,154,0.08)}
 .hero-choice-copy{min-width:0}
 .hero-choice-name{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;margin-bottom:6px;line-height:1.5}
+.hero-choice-card.school .hero-choice-name{color:#666}
 .hero-choice-target{font-size:16px;font-weight:800;line-height:1.4;color:var(--white);margin-bottom:6px}
+.hero-choice-card.school .hero-choice-target{color:#111}
 .hero-choice-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.72)}
+.hero-choice-card.school .hero-choice-desc{color:#444}
 .hero-choice-cta{font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--white);display:inline-flex;align-items:center;gap:6px}
+.hero-choice-card.school .hero-choice-cta{color:var(--pink-dark)}
 .hero-choice-card.club .hero-choice-cta{color:var(--pink)}
-@media(max-width:768px){.hero-choice-grid{grid-template-columns:1fr;max-width:none}.hero-choice-card{min-height:auto}.hero-choice-label{margin-bottom:10px}}
+@media(max-width:768px){.hero-choice-grid{grid-template-columns:1fr;max-width:none}.hero-choice-card{min-height:auto}.hero-choice-label{margin-bottom:10px}.hero-choice-mark{width:76px}.hero-choice-logo{height:30px}}
 
 /* ── Hero age line ── */
 .hero-age-line {
@@ -1328,6 +1337,10 @@ body { line-height: 1.8; }
 #faq .faq-a { color: rgba(255,255,255,0.7) !important; }
 #faq .faq-item { border-color: rgba(255,255,255,0.08) !important; }
 
+#faq .h2{color:#fff !important;}
+#faq .h2 em{color:var(--pink) !important;}
+#faq .h2, #faq .h2 span, #faq .h2 br{color:#fff !important;}
+
 /* Section rhythm accents */
 .sec-accent-top { border-top: 3px solid var(--pink); }
 .sec-rule { border-top: 1px solid rgba(255,255,255,0.08); }
@@ -1510,6 +1523,27 @@ body { line-height: 1.8; }
 #cta .h2, #cta h2 { color: #fff; }
 
 #anxiety-block { color: #333; }
+
+/* ── Final UI fixes ── */
+.hero-choice-wrap + .hero-urgency { margin-top: 20px !important; }
+@media(max-width:768px){
+  .hero-choice-wrap + .hero-urgency { margin-top: 16px !important; }
+}
+#dayflow .h2,
+#dayflow h2,
+#dayflow .h2 *,
+#dayflow h2 * {
+  color: #ffffff !important;
+}
+#dayflow .h2 em,
+#dayflow h2 em {
+  color: var(--pink) !important;
+}
+#dayflow .lead,
+#dayflow .lead * {
+  color: rgba(255,255,255,0.78) !important;
+}
+
 </style>
   <link rel="canonical" href="https://cloverty2026.com/">
 </head>
@@ -1556,13 +1590,8 @@ body { line-height: 1.8; }
 <div class="hero-tagline">所沢・埼玉西部 / 幼児〜中学生 / 2026年4月始動</div>
 <h1 class="hero-title">
 <span class="line1" style="font-size:clamp(28px,5vw,52px);font-weight:900;color:#ffffff;letter-spacing:0.5px;display:block">考える力を、育てる。</span>
-<span class="accent" style="color:var(--pink);font-weight:900;letter-spacing:6px;font-size:clamp(18px,3vw,32px);display:block;margin-top:8px">CLOVERTY</span>
+<span class="accent hero-brand-strong" style="color:var(--pink);font-weight:900;letter-spacing:6px;font-size:clamp(24px,4vw,42px);display:block;margin-top:8px">CLOVERTY</span>
 </h1>
-<div class="hero-specs">
-<span class="hs-item">週3日活動（水・土・日）</span>
-<span class="hs-sep">｜</span>
-<span class="hs-item">体験参加受付中</span>
-</div>
 <p class="hero-position"><strong style="color:var(--white);font-weight:700">通いやすさ</strong>と<strong style="color:var(--white);font-weight:700">育成の両立</strong>を目指したクラブです。</p>
 <p class="hero-subtitle">目的に合わせて、スクールとクラブから選べます。</p>
 <div class="hero-choice-wrap">
@@ -1570,7 +1599,7 @@ body { line-height: 1.8; }
 <div class="hero-choice-grid">
 <a class="hero-choice-card school" href="school.html">
 <div class="hero-choice-top">
-<div class="hero-choice-mark">SS</div>
+<div class="hero-choice-mark"><img alt="CLOVERTY SCHOOL ロゴ" class="hero-choice-logo" src="images/logos/cloverty_css_logo.png"/><span class="hero-choice-badge">SCHOOL</span></div>
 <div class="hero-choice-copy">
 <div class="hero-choice-name">CLOVERTY SOCCER SCHOOL</div>
 <div class="hero-choice-target">幼児〜中学生</div>
@@ -1581,7 +1610,7 @@ body { line-height: 1.8; }
 </a>
 <a class="hero-choice-card club" href="club.html">
 <div class="hero-choice-top">
-<div class="hero-choice-mark">FC</div>
+<div class="hero-choice-mark"><img alt="CLOVERTY CLUB ロゴ" class="hero-choice-logo" src="images/logos/cloverty_fc_logo.png"/><span class="hero-choice-badge">CLUB</span></div>
 <div class="hero-choice-copy">
 <div class="hero-choice-name">CLOVERTY FOOTBALL CLUB</div>
 <div class="hero-choice-target">主に小4以下</div>
@@ -2245,6 +2274,14 @@ body { line-height: 1.8; }
   gp.addEventListener('click',function(){gr.scrollBy({left:-ga(),behavior:'smooth'});});
   gr.addEventListener('scroll',function(){var items=gr.querySelectorAll('.gallery-item'),idx=0;items.forEach(function(x,i){if(x.offsetLeft<=gr.scrollLeft+10)idx=i;});gd.forEach(function(d,i){d.classList.toggle('active',i===idx);});},{passive:true});}
   /* ── Slideshow ── */
+  var heroCardLogos=document.querySelectorAll('.hero-choice-logo');
+  var brandLogo=document.querySelector('.brand-emblem');
+  if(brandLogo && heroCardLogos.length){
+    heroCardLogos.forEach(function(img){
+      if(!img.getAttribute('src')) img.setAttribute('src', brandLogo.getAttribute('src'));
+    });
+  }
+
   var sl=document.querySelectorAll('.hero-slide'),sd=document.querySelectorAll('.slide-dot');
   if(sl.length){var cur=0;function gt(i){sl[cur].classList.remove('active');if(sd[cur])sd[cur].classList.remove('active');cur=(i+sl.length)%sl.length;sl[cur].classList.add('active');if(sd[cur])sd[cur].classList.add('active');}
   var st=setInterval(function(){gt(cur+1);},4000);sd.forEach(function(d,i){d.addEventListener('click',function(){clearInterval(st);gt(i);st=setInterval(function(){gt(cur+1);},4000);});});}
