@@ -1034,6 +1034,25 @@ section + .sec-light {
 }
 
 
+
+/* ── Hero quick choice cards ── */
+.hero-choice-wrap{margin-top:18px;animation:fadeUp 0.7s ease 0.28s both}
+.hero-choice-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:12px;font-weight:700}
+.hero-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px}
+.hero-choice-card{display:flex;flex-direction:column;justify-content:space-between;gap:12px;padding:16px 16px 14px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);text-decoration:none;color:var(--white);border-radius:4px;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;min-height:168px}
+.hero-choice-card:hover{transform:translateY(-2px);border-color:rgba(232,112,154,0.5);background:rgba(232,112,154,0.08);box-shadow:0 10px 28px rgba(0,0,0,0.22)}
+.hero-choice-top{display:flex;align-items:flex-start;gap:12px}
+.hero-choice-mark{width:48px;height:48px;border:1px solid rgba(255,255,255,0.16);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:1px;flex-shrink:0;background:rgba(255,255,255,0.05)}
+.hero-choice-card.school .hero-choice-mark{color:var(--white)}
+.hero-choice-card.club .hero-choice-mark{color:var(--pink);border-color:rgba(232,112,154,0.45);background:rgba(232,112,154,0.08)}
+.hero-choice-copy{min-width:0}
+.hero-choice-name{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;margin-bottom:6px;line-height:1.5}
+.hero-choice-target{font-size:16px;font-weight:800;line-height:1.4;color:var(--white);margin-bottom:6px}
+.hero-choice-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.72)}
+.hero-choice-cta{font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--white);display:inline-flex;align-items:center;gap:6px}
+.hero-choice-card.club .hero-choice-cta{color:var(--pink)}
+@media(max-width:768px){.hero-choice-grid{grid-template-columns:1fr;max-width:none}.hero-choice-card{min-height:auto}.hero-choice-label{margin-bottom:10px}}
+
 /* ── Hero age line ── */
 .hero-age-line {
   display: flex;
@@ -1545,12 +1564,34 @@ body { line-height: 1.8; }
 <span class="hs-item">体験参加受付中</span>
 </div>
 <p class="hero-position"><strong style="color:var(--white);font-weight:700">通いやすさ</strong>と<strong style="color:var(--white);font-weight:700">育成の両立</strong>を目指したクラブです。</p>
-<div class="hero-age-line">
-<span class="hal-item">スクール：幼児〜中学生</span>
-<span class="hal-sep">／</span>
-<span class="hal-item">クラブU-10：主に小4以下</span>
+<p class="hero-subtitle">目的に合わせて、スクールとクラブから選べます。</p>
+<div class="hero-choice-wrap">
+<div class="hero-choice-label">目的に合わせて選べる、2つの育成環境</div>
+<div class="hero-choice-grid">
+<a class="hero-choice-card school" href="school.html">
+<div class="hero-choice-top">
+<div class="hero-choice-mark">SS</div>
+<div class="hero-choice-copy">
+<div class="hero-choice-name">CLOVERTY SOCCER SCHOOL</div>
+<div class="hero-choice-target">幼児〜中学生</div>
+<div class="hero-choice-desc">未経験歓迎 / 基礎から丁寧に育てる</div>
 </div>
-<p class="hero-subtitle">サッカーを始めたい子も、<br/>もっと上手くなりたい子も。<br/><span class="hero-sub2">未経験の子でも安心して参加できるよう、基礎から丁寧に指導します。</span></p>
+</div>
+<div class="hero-choice-cta">スクールを見る <span>→</span></div>
+</a>
+<a class="hero-choice-card club" href="club.html">
+<div class="hero-choice-top">
+<div class="hero-choice-mark">FC</div>
+<div class="hero-choice-copy">
+<div class="hero-choice-name">CLOVERTY FOOTBALL CLUB</div>
+<div class="hero-choice-target">主に小4以下</div>
+<div class="hero-choice-desc">実戦・試合中心 / U-10クラブ</div>
+</div>
+</div>
+<div class="hero-choice-cta">クラブを見る <span>→</span></div>
+</a>
+</div>
+</div>
 <div class="hero-urgency">
 <span class="urgency-dot"></span>
       無料体験 受付中 ─ 定員に達し次第、募集を締め切る場合があります
@@ -1613,53 +1654,28 @@ body { line-height: 1.8; }
 </div>
 </div>
 </section>
-<!-- スクール vs クラブ 2択カード -->
-<section class="two-choice-wrap" style="background:#f5f3ef;padding:48px 32px">
-<div style="max-width:900px;margin:0 auto">
-<p style="text-align:center;font-size:12px;letter-spacing:3px;color:var(--pink-dark);text-transform:uppercase;margin-bottom:24px">WHICH FITS YOU?</p>
-<div class="two-choice-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-<a href="school.html" onmouseout="this.style.borderColor='rgba(0,0,0,0.08)';this.style.boxShadow='none'" onmouseover="this.style.borderColor='#c8547e';this.style.boxShadow='0 8px 24px rgba(200,84,126,0.15)'" style="display:block;background:#fff;border:2px solid rgba(0,0,0,0.08);border-radius:4px;padding:32px 24px;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s">
-<div style="font-size:22px;margin-bottom:12px">🌱</div>
-<div style="font-size:16px;font-weight:800;color:#333;margin-bottom:14px;line-height:1.5">考える。その一歩が、成長になる。</div>
-<div style="font-size:16px;font-weight:800;color:#111;margin-bottom:6px">スクール</div>
-<div style="font-size:12px;font-weight:700;color:var(--pink-dark);letter-spacing:1px;margin-bottom:12px">CLOVERTY SOCCER SCHOOL</div>
-<div style="font-size:13px;color:#444;line-height:1.8">幼児〜中学生<br/>未経験から経験者まで<br/>基礎技術・個の育成</div>
-<div style="margin-top:16px;font-size:12px;font-weight:700;color:#a83060">詳しく見る →</div>
-</a>
-<a href="club.html" onmouseout="this.style.borderColor='#111';this.style.boxShadow='none'" onmouseover="this.style.borderColor='var(--pink)';this.style.boxShadow='0 8px 24px rgba(232,112,154,0.25)'" style="display:block;background:#111;border:2px solid #111;border-radius:4px;padding:32px 24px;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s">
-<div style="font-size:22px;margin-bottom:12px">⚽</div>
-<div style="font-size:16px;font-weight:800;color:rgba(255,255,255,0.9);margin-bottom:14px;line-height:1.5">考え、挑み、勝ちを創る。</div>
-<div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:6px">クラブ U-10</div>
-<div style="font-size:12px;font-weight:700;color:var(--pink);letter-spacing:1px;margin-bottom:12px">CLOVERTY FC</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.8">主に小4以下<br/>試合・実戦中心<br/>クラブチーム活動</div>
-<div style="margin-top:16px;font-size:12px;font-weight:700;color:var(--pink)">詳しく見る →</div>
-</a>
-</div>
-<p style="text-align:center;font-size:12px;color:#555;margin-top:16px">※ 迷ったらまず無料体験から。コーチが一緒に考えます。</p>
-</div>
-</section>
-<!-- ② PHILOSOPHY -->
-<!-- CLOVERTYについて -->
-<section class="sec" id="about-cloverty" style="background:var(--charcoal);padding-top:56px;padding-bottom:56px">
+<!-- CLOVERTYの軸 / 2つの育成環境 -->
+<section class="sec" id="about-cloverty" style="background:var(--charcoal);padding-top:72px;padding-bottom:56px">
 <div class="sec-inner">
 <div class="about-inner reveal">
 <div class="about-text">
-<span class="label">About / <span class="label-jp">クラブについて</span></span>
-<h2 class="h2" style="margin-top:12px">所沢発、<em>CLOVERTY</em>とは。</h2>
+<span class="label">CLOVERTY / <span class="label-jp">考える力を、育てる。</span></span>
+<h2 class="h2" style="margin-top:12px">ブランドの軸はひとつ。<br/><em>育成環境は2つ。</em></h2>
 <p style="font-size:15px;color:#c8c8c8;line-height:2.2;margin-top:16px">
-          CLOVERTYは、小学生年代を中心とした育成ブランドです。<br/>
-<strong>CLOVERTY FC</strong>（クラブチーム）と<strong>CLOVERTY SOCCER SCHOOL</strong>（スクール）の両方を展開しています。<br/><br/>所沢・埼玉西部エリアを拠点に、地域に根ざした育成クラブを目指します。
+          CLOVERTYが大切にしているのは、<strong>自分で見て、考えて、判断する力</strong>を育てること。<br/>
+          その軸は変えずに、お子さまの目的や成長段階に合わせて、<strong>スクール</strong>と<strong>クラブ U-10</strong>の2つの育成環境を用意しています。<br/><br/>
+          まずは下の違いを見て、どちらが合いそうかをご確認ください。
         </p>
 </div>
 <div class="about-diff">
 <div class="ad-item" style="border-left-color:#555">
 <div class="ad-label">スクール</div>
-<div class="ad-body">基礎育成中心。未経験〜経験者まで。幼児〜中学生対象。週1〜4回で通える。</div>
+<div class="ad-body">幼児〜中学生対象。未経験から参加しやすく、基礎技術・判断力・個の成長を丁寧に育てます。週1〜4回で通いやすい設計です。</div>
 <a class="ad-link" href="school.html">スクール詳細 →</a>
 </div>
 <div class="ad-item ad-item-club">
 <div class="ad-label">クラブチーム U-10</div>
-<div class="ad-body">試合・実戦中心。公式戦・大会参加。主に小学4年生以下対象。コーチ推薦制。</div>
+<div class="ad-body">主に小学4年生以下対象。試合・実戦の中で挑戦しながら、より高いレベルで成長したい子向けのクラブチームです。</div>
 <a class="ad-link" href="club.html">クラブ詳細 →</a>
 </div>
 </div>
